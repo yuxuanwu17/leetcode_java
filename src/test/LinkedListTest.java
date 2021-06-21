@@ -53,5 +53,10 @@ public class LinkedListTest {
             System.out.println(s);
         }
 
+        System.out.println("=======test 12 mode 10 ==========");
+        System.out.println(12 / 10);
+        System.out.println( 12 % 10);
+
+
     }
 }
