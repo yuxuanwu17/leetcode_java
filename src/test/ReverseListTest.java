@@ -10,7 +10,7 @@ public class ReverseListTest {
         ListNode l1 = new ListNode(l1Array);
         ListNode l2 = new ListNode(l2Array);
         ReverseList obj = new ReverseList();
-        ListNode l1_reverse = obj.reverseList(l1);
+        ListNode l1_reverse = obj.reverseList2(l1);
         System.out.println(l1_reverse);
     }
 }
