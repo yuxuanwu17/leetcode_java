@@ -51,6 +51,7 @@ public class Junit {
         TwoSum twoSum = new TwoSum();
         int [] results = twoSum.twoSum(nums,target);
         System.out.println(Arrays.toString(results));
+//        System.out.println(Arrays.toString(new int[0]));
     }
 
 
