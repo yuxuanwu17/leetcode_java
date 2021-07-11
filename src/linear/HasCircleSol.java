@@ -2,6 +2,8 @@ package linear;
 
 import linear.ListNode;
 
+import java.util.HashSet;
+
 public class HasCircleSol {
     public boolean hasCircle(ListNode head) {
         // 这里考虑的是只有头结点和头结点为空的情况
@@ -21,4 +23,14 @@ public class HasCircleSol {
         return true;
     }
 
+    public boolean hasCircle_hashset(ListNode head) {
+        HashSet<ListNode> hashset = new HashSet<ListNode>();
+        while (head != null) {
+            if (!hashset.add(head)) return true;
+            head = head.next;
+        }
+        return false;
+    }
+
 }
+

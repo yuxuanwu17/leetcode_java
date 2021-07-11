@@ -12,6 +12,7 @@ public class Junit {
     private int[] nums = {2,7,11,15};
     private int target = 9;
 
+    private int[][] mat = {{1,2,2},{3,4}};
 
     @Test
     public void sorting() {
@@ -52,6 +53,17 @@ public class Junit {
         int [] results = twoSum.twoSum(nums,target);
         System.out.println(Arrays.toString(results));
 //        System.out.println(Arrays.toString(new int[0]));
+    }
+
+    @Test
+    public void matric() {
+        //    private int[][] mat = {{1,2,2},{3,4}};
+//        int n = mat[0].length;
+//        int m = mat.length;
+//        System.out.println(n);
+//        System.out.println(m);
+        int []n = mat[0];
+        System.out.println(Arrays.toString(mat[0]));
     }
 
 
