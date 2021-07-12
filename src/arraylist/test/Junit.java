@@ -2,6 +2,7 @@ package arraylist.test;
 
 import arraylist.Intersect;
 import arraylist.MatrixShape;
+import arraylist.PivotIndex;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -13,7 +14,7 @@ public class Junit {
      * [4,9,5]
      * [9,4,9,8,4]
      */
-    private int[] testArray1 = {4,9,5};
+    private int[] testArray1 = {1,7,3,6,5,6};
     private int[] testArray2 = {9,4,9,8,4};
 
     private int[][] mat = {{1,2},{3,4}};
@@ -33,7 +34,13 @@ public class Junit {
         int [][] ans = matrixShape.matrixReshape(mat, r, c);
         System.out.println(Arrays.toString(ans));
 
+    }
 
+    @Test
+    public void pivotIndexTest() {
+        PivotIndex pivotIndex = new PivotIndex();
+        int i = pivotIndex.pivotIndex(testArray1);
+        System.out.println(i);
     }
 
 }
