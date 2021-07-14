@@ -5,12 +5,13 @@ import dp.maxSubArray;
 import dp.Fib;
 import hashset.TwoSum;
 import org.junit.Test;
+import sorting.BinarySearch;
 
 import java.util.Arrays;
 
 public class Junit {
-    private int[] nums = {2,7,11,15};
-    private int target = 9;
+    private int[] nums = {-1,0,3,5,9,12};
+    private int target = 2;
 
     private int[][] mat = {{1,2,2},{3,4}};
 
@@ -64,6 +65,12 @@ public class Junit {
 //        System.out.println(m);
         int []n = mat[0];
         System.out.println(Arrays.toString(mat[0]));
+    }
+
+    @Test
+    public void BinarySearchTest() {
+        int num = BinarySearch.binarySearch2(nums,target);
+        System.out.println(num);
     }
 
 
