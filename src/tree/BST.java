@@ -27,7 +27,12 @@ public class BST {
      * 定义treeNode
      **/
     private TreeNode root;
+    private int size = 0;
 
+
+    public int getSize(){
+        return this.size;
+    }
 
     /**
      * 跳出循环后，如果是因为current==null而跳出的，则返回null
@@ -62,6 +67,7 @@ public class BST {
         // 先判断是否存在，不存在则让输入为root
         if (root == null) {
             root = new TreeNode(key);
+            size++;
             return;
         }
 
@@ -76,12 +82,14 @@ public class BST {
                 current = parent.left;
                 if (current == null) {
                     parent.left = new TreeNode(key);
+                    size++;
                     return;
                 }
             } else if (key > parent.value) {
                 current = parent.right;
                 if (current == null) {
                     parent.right = new TreeNode(key);
+                    size++;
                     return;
                 }
             } else {
@@ -130,6 +138,7 @@ public class BST {
             } else {
                 parent.right = null;
             }
+            size--;
             // Case 2: if node to be deleted has only one child
         } else if (current.right == null) {
             if (current == root) {
@@ -139,6 +148,7 @@ public class BST {
             } else {
                 parent.right = current.left;
             }
+            size--;
         } else if (current.left == null) {
             if (current == root) {
                 root = current.right;
@@ -147,9 +157,11 @@ public class BST {
             } else {
                 parent.right = current.right;
             }
+            size--;
             // Case 3: current.left != null && current.right != null
             // 找右子树上的最小的节点来替代--> successor
         } else {
+            // 这一步是获得最小的节点
             TreeNode successor = getSuccessor(current);
             if (current == root) {
                 root = successor;
@@ -159,21 +171,28 @@ public class BST {
                 parent.right = successor;
             }
             successor.left = current.left;
+            size--;
         }
         return true;
     }
 
     private TreeNode getSuccessor(TreeNode node) {
         // 找右子树上的最小的节点来替代--> successor
+        // 同时遵循保证树形结构的完整
         TreeNode successor = null; // 最后需要放上去的那个节点
         TreeNode successorParent = null;
         TreeNode current = node.right; // 找到待删除位置的sub右子树上找到最小的点
+        // 这里的while循环已经保证了最小左子树，但是没法保证最小左子树是否含有右节点
         while (current != null) {
             successorParent = successor;
             successor = current;
             current = current.left;
         }
+
+        // 说明待删除的点是有左子树的
         if (successor != node.right) {
+            // 这一步的目的是为了将最小左子树的有节点给连接上
+            // 如果没有也就返回null，不影响
             successorParent.left = successor.right;
             successor.right = node.right;
         }
