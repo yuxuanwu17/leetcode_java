@@ -6,7 +6,7 @@ import org.junit.Test;
 public class Junit {
     //    int[] num1 = {6, 1, 2, 6, 3, 4, 5, 6, 6, 6};
     int[] num1 = {-3, -1, 0, 0, 0, 3, 3};
-    int[] num2 = {1, 2, 2, 3, 3, 4};
+    int[] num2 = {1, 2, 3, 4, 5, 6};
     ListNode l1 = new ListNode(num1);
     ListNode l2 = new ListNode(num2);
 
@@ -55,6 +55,12 @@ public class Junit {
         System.out.println("l2 is: "+l2);
         ListNode res = reverseListN.reverseN(l2, 3);
         System.out.println(res);
-
+    }
+    @Test
+    public void reverseBetween() {
+        System.out.println("l2 is: "+l2);
+        ReverseTargetRange reverseTargetRange = new ReverseTargetRange();
+        ListNode res = reverseTargetRange.reverseBetween(l2, 2, 5);
+        System.out.println(res);
     }
 }
