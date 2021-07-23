@@ -49,4 +49,12 @@ public class Junit {
         HasCircleSol obj = new HasCircleSol();
 //        obj.hasCircle_hashset();
     }
+    @Test
+    public void reverseList() {
+        ReverseListN reverseListN = new ReverseListN();
+        System.out.println("l2 is: "+l2);
+        ListNode res = reverseListN.reverseN(l2, 3);
+        System.out.println(res);
+
+    }
 }

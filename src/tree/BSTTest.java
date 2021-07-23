@@ -8,9 +8,27 @@ public class BSTTest {
         bst.insert(1);
         bst.insert(2);
         bst.insert(3);
+        bst.insert(4);
+        bst.insert(5);
+        bst.insert(6);
+        bst.insert(7);
+        bst.insert(8);
+        bst.insert(9);
+        bst.insert(10);
         System.out.println(bst.getSize());
-        bst.delete(2);
-        System.out.println(bst.getSize());
+
+        System.out.println("节点树"+bst.count(bst.get(1)));
+
+        System.out.println("preOrder:");
+        bst.preOrderTraversal(bst.get(1));
+        System.out.println("inOrder:");
+        bst.inOrderTraversal(bst.get(1));
+        System.out.println("postOrder:");
+        bst.postOrderTraversal(bst.get(1));
+
+//        bst.delete(2);
+//        System.out.println(bst.getSize());
+
 
 //        BST.TreeNode treeNode = bst.get(2);
 //        System.out.println(treeNode.value);

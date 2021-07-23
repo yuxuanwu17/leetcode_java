@@ -207,5 +207,30 @@ public class BST {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
+    public static void inOrderTraversal(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        inOrderTraversal(root.left);
+        System.out.println(root.value);
+        inOrderTraversal(root.right);
+    }
+
+    public static void postOrderTraversal(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        postOrderTraversal(root.left);
+        System.out.println(root.value);
+        postOrderTraversal(root.right);
+    }
+
+    // 定义：count(root) 返回以 root 为根的树有多少节点
+    public int count(TreeNode root) {
+        // base case
+        if (root == null) return 0;
+        // 自己加上子树的节点数就是整棵树的节点数
+        return 1 + count(root.left) + count(root.right);
+    }
 
 }
