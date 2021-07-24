@@ -63,4 +63,11 @@ public class Junit {
         ListNode res = reverseTargetRange.reverseBetween(l2, 2, 5);
         System.out.println(res);
     }
+
+    @Test
+    public void  reverseKGroup() {
+        ReverseKGroup reverseKGroup = new ReverseKGroup();
+        ListNode listNode = reverseKGroup.reverseKGroup(l2, 2);
+        System.out.println(listNode);
+    }
 }
