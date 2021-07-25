@@ -230,6 +230,7 @@ public class BST {
         // base case
         if (root == null) return 0;
         // 自己加上子树的节点数就是整棵树的节点数
+        // 这里考察的是递归的思想
         return 1 + count(root.left) + count(root.right);
     }
 
