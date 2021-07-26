@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Deserializable {
     String SEP = ",";
-    String NULL = "#";
+    String NULL = "null";
 
 
     public TreeNode deserializable(String data) {
