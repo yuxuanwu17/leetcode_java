@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Junit {
+//    TreeNode root = new Deserializable().deserializable("3,1,4,null,2");
+    TreeNode root = new Deserializable().deserializable("5,3,6,2,4,null,null,1");
     @Test
     public void serializableTest() {
         String data = "1,2,#,4,#,#,3,#,#,";
@@ -25,7 +27,7 @@ public class Junit {
     }
 
     @Test
-    public void  findDuplicates() {
+    public void findDuplicates() {
         FindDuplicateTrees fpt = new FindDuplicateTrees();
         List<TreeNode> nodes = fpt.findDuplicateSubtrees(new Deserializable().deserializable("1,2,3,4,null,2,4,null,null,4"));
         for (TreeNode node : nodes) {
@@ -33,5 +35,16 @@ public class Junit {
             System.out.println(node);
         }
     }
+
+    @Test
+    public void kthSmallest() {
+        KthSmallest kthSmallest = new KthSmallest();
+        System.out.println("The initial structure is: ");
+        new CreateTree().printTree(root);
+        kthSmallest.traverse(root);
+//        int i = kthSmallest.kthSmallest(root, 1);
+//        System.out.println(i);
+    }
+
 
 }

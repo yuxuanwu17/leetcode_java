@@ -5,57 +5,31 @@ import sorting.BinarySearch;
 public class BSTTest {
     public static void main(String[] args) {
         BST bst = new BST();
-        bst.insert(1);
-        bst.insert(2);
-        bst.insert(3);
-        bst.insert(4);
-        bst.insert(5);
-        bst.insert(6);
-        bst.insert(7);
-        bst.insert(8);
-        bst.insert(9);
-        bst.insert(10);
-        System.out.println(bst.getSize());
+        //5,3,6,2,4,null,null,1
+        Object[] input = {5, 3, 6, 2, 4, null, null, 1};
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] == null) continue;
+            bst.insert((Integer) input[i]);
+        }
 
-        System.out.println("节点树"+bst.count(bst.get(1)));
-
-        System.out.println("preOrder:");
-        bst.preOrderTraversal(bst.get(1));
         System.out.println("inOrder:");
-        bst.inOrderTraversal(bst.get(1));
-        System.out.println("postOrder:");
-        bst.postOrderTraversal(bst.get(1));
-
-//        bst.delete(2);
-//        System.out.println(bst.getSize());
-
-
-//        BST.TreeNode treeNode = bst.get(2);
-//        System.out.println(treeNode.value);
+        bst.inOrderTraversal(bst.getRoot());
+        TreeNode inputRoot = bst.getRoot();
+        KthSmallest kthSmallest = new KthSmallest();
+        System.out.println("===============");
+        kthSmallest.traverse(inputRoot);
 
 
 
-
-
-//        BinarySearchTree<Integer, String> bt = new BinarySearchTree<>();
-//        bt.put(4,"二哈");
-//        bt.put(1,"张三");
-//        bt.put(3,"李四");
-//        bt.put(5,"王五");
-//        System.out.println(bt.size());
-//        bt.put(1,"老三");
-//        System.out.println(bt.get(1));
-
-
-//        BinarySearchTree<Integer, String> tree = new BinarySearchTree<>();
-//        tree.put(3, "张三");
-//        tree.put(2, "李四");
-//        tree.put(1, "王五");
-//        tree.put(4, "赵六");
-//        tree.put(5, "洪七");
-//        tree.delete(2);
-//        tree.delete(3);
-//        System.out.println("删除后键5对应的元素是" + tree.get(5));
+//        System.out.println("节点树:"+bst.count(bst.getRoot()));
+//        System.out.println("preOrder:");
+//        bst.preOrderTraversal(bst.getRoot());
+//        System.out.println("=================");
+//        System.out.println("inOrder:");
+//        bst.inOrderTraversal(bst.getRoot());
+//        System.out.println("=================");
+//        System.out.println("postOrder:");
+//        bst.postOrderTraversal(bst.getRoot());
     }
 
 }

@@ -1,27 +1,15 @@
 package tree;
 
+import tree.TreeNode;
 public class BST {
     /**
      * 二分查找树满足以下的特性：
      * 每个节点都比自己左子树上的节点大，并比右子树上的节点小。
-     * BST does not allow nodes with the same value
+     * BST does not allow nodes with the same val
      * <p>
      * O(T):O(logN)
      */
-
-    static class TreeNode {
-        public int value;
-        public TreeNode left;
-        public TreeNode right;
-
-        public TreeNode(int value) {
-            this.value = value;
-        }
-
-        public TreeNode() {
-
-        }
-    }
+    
 
     /**
      * 定义treeNode
@@ -39,18 +27,21 @@ public class BST {
      * 如果不是，则默认是current跳出的，所以返回的是current
      *
      * @param key 输入的想要查找的值
-     * @return 返回null 或者是get到的值value
+     * @return 返回null 或者是get到的值val
      */
     public TreeNode get(int key) {
         TreeNode current = root;
-        while (current != null && current.value != key) {
-            if (key < current.value) {
+        while (current != null && current.val != key) {
+            if (key < current.val) {
                 current = current.left;
-            } else if (key > current.value) {
+            } else if (key > current.val) {
                 current = current.right;
             }
         }
         return current == null ? null : current;
+    }
+    public TreeNode getRoot(){
+        return root;
     }
 
 
@@ -78,14 +69,14 @@ public class BST {
         TreeNode parent = null;
         while (true) {
             parent = current;
-            if (key < parent.value) {
+            if (key < parent.val) {
                 current = parent.left;
                 if (current == null) {
                     parent.left = new TreeNode(key);
                     size++;
                     return;
                 }
-            } else if (key > parent.value) {
+            } else if (key > parent.val) {
                 current = parent.right;
                 if (current == null) {
                     parent.right = new TreeNode(key);
@@ -93,7 +84,7 @@ public class BST {
                     return;
                 }
             } else {
-                return; // BST does not allow nodes with the same value
+                return; // BST does not allow nodes with the same val
             }
         }
     }
@@ -116,9 +107,9 @@ public class BST {
         TreeNode parent = root;
         TreeNode current = root;
         boolean isLeftChild = false;
-        while (current != null && current.value != key) {
+        while (current != null && current.val != key) {
             parent = current;
-            if (current.value > key) {
+            if (current.val > key) {
                 isLeftChild = true;
                 current = current.left;
             } else {
@@ -203,7 +194,7 @@ public class BST {
         if (root == null) {
             return;
         }
-        System.out.println(root.value);
+        System.out.println(root.val);
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
@@ -212,7 +203,7 @@ public class BST {
             return;
         }
         inOrderTraversal(root.left);
-        System.out.println(root.value);
+        System.out.println(root.val);
         inOrderTraversal(root.right);
     }
 
@@ -221,7 +212,7 @@ public class BST {
             return;
         }
         postOrderTraversal(root.left);
-        System.out.println(root.value);
+        System.out.println(root.val);
         postOrderTraversal(root.right);
     }
 
