@@ -11,13 +11,18 @@ public class BSTTest {
             if (input[i] == null) continue;
             bst.insert((Integer) input[i]);
         }
-
-        System.out.println("inOrder:");
-        bst.inOrderTraversal(bst.getRoot());
         TreeNode inputRoot = bst.getRoot();
         KthSmallest kthSmallest = new KthSmallest();
-        System.out.println("===============");
-        kthSmallest.traverse(inputRoot);
+        int i = kthSmallest.kthSmallest(inputRoot, 1);
+        System.out.println(i);
+
+//        System.out.println("inOrder:");
+//        bst.inOrderTraversal(bst.getRoot());
+//        TreeNode inputRoot = bst.getRoot();
+//        KthSmallest kthSmallest = new KthSmallest();
+//        System.out.println("===============");
+//        kthSmallest.traverse(inputRoot);
+
 
 
 
