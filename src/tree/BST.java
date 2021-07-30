@@ -1,6 +1,7 @@
 package tree;
 
 import tree.TreeNode;
+
 public class BST {
     /**
      * 二分查找树满足以下的特性：
@@ -9,7 +10,7 @@ public class BST {
      * <p>
      * O(T):O(logN)
      */
-    
+
 
     /**
      * 定义treeNode
@@ -18,10 +19,33 @@ public class BST {
     private int size = 0;
 
 
-    public int getSize(){
+    public int getSize() {
         return this.size;
     }
 
+    /**
+     * 判断是不是有效的二叉树
+     * 判断的核心是root和所有的左右子树进行对比
+     */
+
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, null, null);
+    }
+
+    private boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        // base case
+        if (root == null) return true;
+        // 若 root.val 不符合 max 和 min 的限制，说明不是合法 BST
+        if (min != null && root.val <= min.val) return false;
+        if (max != null && root.val >= max.val) return false;
+        // 限定左子树的最大值是 root.val，右子树的最小值是 root.val
+        return isValidBST(root.left, min, root)
+                && isValidBST(root.right, root, max);
+    }
+
+    /**
+     *在BST上搜索一个值
+     */
     /**
      * 跳出循环后，如果是因为current==null而跳出的，则返回null
      * 如果不是，则默认是current跳出的，所以返回的是current
@@ -40,7 +64,8 @@ public class BST {
         }
         return current == null ? null : current;
     }
-    public TreeNode getRoot(){
+
+    public TreeNode getRoot() {
         return root;
     }
 
@@ -95,7 +120,7 @@ public class BST {
      * Case 1: if node to be deleted has no children （删除节点没有子节点）
      * Case 2: if node to be deleted has only one child （删除节点有一个子节点，可以是左，也可以是右）
      * Case 3: current.left != null && current.right != null （删除节点有两个节点，左右节点都存在）
-     *
+     * <p>
      * https://www.bilibili.com/video/BV1qQ4y1M7Z4
      *
      * @param key
@@ -190,6 +215,40 @@ public class BST {
         return successor;
     }
 
+    /**
+     * 方法二：deleteNode
+     *
+     * @param root
+     */
+
+    public TreeNode deleteNode(TreeNode root, int key) {
+        if (root == null) return null;
+        // 包含了两种情况：
+        // 一种是没有子节点
+        // 另一种是仅有一个节点
+        if (root.val == key) {
+            if (root.left == null) return root.right;
+            if (root.right == null) return root.left;
+            // 接下来处理的是同时有左右两个节点，找到右子树的最小值，也就是右子树的最左边的node
+            TreeNode minNode = getMinNode(root.right);
+            root.val = minNode.val;
+            root.right = deleteNode(root.right, minNode.val);
+        } else if (root.val > key) {
+            root.left = deleteNode(root.left, key);
+
+        } else if (root.val < key) {
+            root.right = deleteNode(root.right, key);
+        }
+
+        return root;
+    }
+
+    public TreeNode getMinNode(TreeNode node) {
+        // BST 左边就是最小的
+        while (node.left != null) node = node.left;
+        return node;
+    }
+
     public static void preOrderTraversal(TreeNode root) {
         if (root == null) {
             return;
@@ -198,8 +257,9 @@ public class BST {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
+
     public static void inOrderTraversal(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         inOrderTraversal(root.left);
@@ -208,7 +268,7 @@ public class BST {
     }
 
     public static void postOrderTraversal(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         postOrderTraversal(root.left);

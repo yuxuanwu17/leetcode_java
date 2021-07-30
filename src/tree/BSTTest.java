@@ -13,17 +13,18 @@ public class BSTTest {
         }
         TreeNode inputRoot = bst.getRoot();
         KthSmallest kthSmallest = new KthSmallest();
-        int i = kthSmallest.kthSmallest(inputRoot, 1);
-        System.out.println(i);
+//        int i = kthSmallest.kthSmallest(inputRoot, 1);
+//        System.out.println(i);
 
 //        System.out.println("inOrder:");
 //        bst.inOrderTraversal(bst.getRoot());
 //        TreeNode inputRoot = bst.getRoot();
 //        KthSmallest kthSmallest = new KthSmallest();
-//        System.out.println("===============");
-//        kthSmallest.traverse(inputRoot);
-
-
+        System.out.println("===============");
+        kthSmallest.traverse(inputRoot);
+        System.out.println("===============");
+        bst.deleteNode(bst.getRoot(), 2);
+        kthSmallest.traverse(inputRoot);
 
 
 //        System.out.println("节点树:"+bst.count(bst.getRoot()));
