@@ -37,7 +37,7 @@ public class Junit {
     @Test
     public void fibTest() {
         Fib fib_obj = new Fib();
-        int results = fib_obj.fib(5);
+        int results = fib_obj.fib_memo(5);
         System.out.println(results);
 
     }
@@ -45,7 +45,9 @@ public class Junit {
     public void fibTes2t() {
         Fib fib_obj = new Fib();
         int results = fib_obj.fib_dp(5);
+        int results2 = fib_obj.fib_bottom_to_up(5);
         System.out.println(results);
+        System.out.println(results2);
     }
 
     @Test
