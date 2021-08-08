@@ -3,6 +3,7 @@ package dp.test;
 import dp.CoinChange;
 import dp.LengthOfLFS;
 import dp.MaxProfit;
+import dp.MinDistance;
 import org.junit.Test;
 
 public class test {
@@ -30,5 +31,12 @@ public class test {
         CoinChange coinChange = new CoinChange();
         int i = coinChange.coinChange(coins, amount);
         System.out.println(i);
+    }
+    @Test
+    public void minDistanceTest() {
+        MinDistance minDistance = new MinDistance();
+        int i = minDistance.minDistance("horse", "ros");
+        System.out.println(i);
+
     }
 }

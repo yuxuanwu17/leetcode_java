@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class CoinChange {
     int[] memo;
 
-    public int coinChange(int[] coins, int amount) {
+    public int  coinChange(int[] coins, int amount) {
         memo = new int[amount + 1];
         Arrays.fill(memo, -666);
         return helper(coins, amount);
