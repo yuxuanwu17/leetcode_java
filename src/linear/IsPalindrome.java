@@ -28,4 +28,58 @@ public class IsPalindrome {
         head.next = null;
         return last;
     }
+
+    // ==========================================================================
+
+    ListNode left;
+
+    public boolean isPalindrome2(ListNode head) {
+        left = head;
+        return postOrderTraverse(head);
+
+    }
+
+    public boolean postOrderTraverse(ListNode right) {
+        // base case
+        if (right == null) return true;
+
+        boolean res = postOrderTraverse(right.next);
+
+        res = res && (left.val == right.val);
+        left = left.next;
+        return res;
+    }
+
+    public boolean isPalindrome3(ListNode head) {
+        ListNode slow = findMiddleNode(head);
+        ListNode left = head;
+        ListNode right = traverse(slow);
+
+        System.out.println(left);
+        System.out.println(right);
+
+        while (right != null) {
+            if (left.val != right.val) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+
+    }
+
+    public ListNode findMiddleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        if (fast != null)
+            slow = slow.next;
+        return slow;
+    }
 }

@@ -49,4 +49,19 @@ public class ReverseList {
         return p;
     }
 
+    /* 倒序打印单链表中的元素值 */
+    public void traverse(ListNode head) {
+        if (head == null) return;
+        traverse(head.next);
+        // 后序遍历代码
+        System.out.println((head.val));
+    }
+
+    public void preOrderTraverse(ListNode head) {
+        if (head == null) return;
+        // 前序遍历代码
+        System.out.println((head.val));
+        traverse(head.next);
+    }
+
 }

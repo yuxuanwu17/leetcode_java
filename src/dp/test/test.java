@@ -17,6 +17,10 @@ public class test {
         System.out.println(profit);
         int profit2 = maxProfit.maxProfit2(nums);
         System.out.println(profit2);
+        int profit3 = maxProfit.maxProfit3(nums);
+        System.out.println(profit3);
+        int profit4 = maxProfit.maxProfit4(nums);
+        System.out.println(profit4);
     }
 
     @Test

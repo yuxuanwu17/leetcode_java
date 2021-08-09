@@ -6,7 +6,7 @@ import org.junit.Test;
 public class Junit {
     //    int[] num1 = {6, 1, 2, 6, 3, 4, 5, 6, 6, 6};
     int[] num1 = {-3, -1, 0, 0, 0, 3, 3};
-    //    int[] num2 = {1, 2, 3, 4, 5, 6};
+//        int[] num2 = {1, 2, 3, 4, 5, 6};
     int[] num2 = {1, 2, 2, 1};
     ListNode l1 = new ListNode(num1);
     ListNode l2 = new ListNode(num2);
@@ -68,6 +68,21 @@ public class Junit {
     }
 
     @Test
+    public void traverse() {
+        ReverseList reverseList = new ReverseList();
+        System.out.println("Initial: "+l2);
+        reverseList.traverse(l2);
+        System.out.println("===========");
+        reverseList.preOrderTraverse(l2);
+    }
+    @Test
+    public void preOrderTraverse() {
+        ReverseList reverseList = new ReverseList();
+        System.out.println("Initial: "+l2);
+        reverseList.preOrderTraverse(l2);
+    }
+
+    @Test
     public void reverseBetween() {
         System.out.println("l2 is: " + l2);
         ReverseTargetRange reverseTargetRange = new ReverseTargetRange();
@@ -85,7 +100,7 @@ public class Junit {
     @Test
     public void isPalindromeTest() {
         IsPalindrome isPalindrome = new IsPalindrome();
-        boolean res = isPalindrome.isPalindrome(l2);
+        boolean res = isPalindrome.isPalindrome3(l2);
         System.out.println(res);
     }
 }
