@@ -2,6 +2,9 @@ package linear;
 
 import linear.ListNode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MergeTwoLists {
     // l1:1-2-3-4-5
     // l2:1-2
@@ -25,12 +28,11 @@ public class MergeTwoLists {
                 l2 = l2.next;
             }
         }
-            if (l1 == null) {
-                curr.next = l2;
-            }
-            else {
-                curr.next = l1;
-            }
+        if (l1 == null) {
+            curr.next = l2;
+        } else {
+            curr.next = l1;
+        }
 
         return dummyHead.next;
     }
@@ -59,4 +61,37 @@ public class MergeTwoLists {
         return dummyHead.next;
     }
 
+
+    public ListNode mergeTwoLists3(ListNode l1, ListNode l2) {
+        ArrayList<Integer> list1 = nodeToList(l1);
+        ArrayList<Integer> list2 = nodeToList(l2);
+        list1.addAll(list2);
+
+        Object[] array = list1.toArray();
+        Arrays.sort(array);
+
+        return arrayToNode(array);
+    }
+
+    public ArrayList<Integer> nodeToList(ListNode node) {
+        ArrayList<Integer> arraylist = new ArrayList<>();
+        while (node != null) {
+            arraylist.add(node.val);
+            node = node.next;
+        }
+        return arraylist;
+    }
+
+    public ListNode arrayToNode(Object[] array) {
+        ListNode listNode = new ListNode();
+        ListNode dummyHead = new ListNode();
+        dummyHead.next = listNode;
+
+        for (int i = 0; i < array.length; i++) {
+            listNode.next = new ListNode((Integer) array[i]);
+            listNode = listNode.next;
+        }
+
+        return dummyHead.next.next;
+    }
 }

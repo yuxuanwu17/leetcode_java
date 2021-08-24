@@ -3,6 +3,9 @@ package linear.test;
 import linear.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Junit {
     //    int[] num1 = {6, 1, 2, 6, 3, 4, 5, 6, 6, 6};
     int[] num1 = {-3, -1, 0, 0, 0, 3, 3};
@@ -26,6 +29,12 @@ public class Junit {
         ListNode res = mergeTwoLists.mergeTwoLists(l1, l2);
         System.out.println("=============");
         System.out.println("dummy node is: " + res);
+
+//        Arrays.sort(num1);
+//        System.out.println(Arrays.toString(num1));
+        ListNode res2 = mergeTwoLists.mergeTwoLists3(l1, l2);
+        System.out.println("=============");
+        System.out.println("dummy node is: " + res2);
 
     }
 
