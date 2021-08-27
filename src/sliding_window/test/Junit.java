@@ -2,7 +2,11 @@ package sliding_window.test;
 
 import org.junit.Test;
 import sliding_window.CheckInclusion;
+import sliding_window.FindAnagrams;
 import sliding_window.MinWindow;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Junit {
     @Test
@@ -22,6 +26,17 @@ public class Junit {
         String t = "ooolleoooleh";
         Boolean s1 = checInclusion.checkInclusion(s, t);
         System.out.println(s1);
+    }
+
+    @Test
+    public void FindAnagrams() {
+        FindAnagrams findAnagrams = new FindAnagrams();
+        String s = "cbaebabacd";
+        String p = "abc";
+
+        List<Integer> anagrams = findAnagrams.findAnagrams(s, p);
+        System.out.println(anagrams);
+        System.out.println(Arrays.toString(anagrams.toArray()));
     }
 
 }
