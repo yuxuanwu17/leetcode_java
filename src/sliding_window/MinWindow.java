@@ -31,6 +31,9 @@ public class MinWindow {
                     valid++;
                 }
             }
+
+            System.out.println("window: " + left + "->" + right);
+
             while (valid == need.size()) {
                 // 在这里更新最小覆盖最小子串
                 if (right - left < len) {
