@@ -1,7 +1,6 @@
 package hashset;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
@@ -36,4 +35,54 @@ public class TwoSum {
         }
         return new int[0];
     }
-}
+
+    public List<List<Integer>> twoSumVal(int[] nums, int start ,int target) {
+
+        int lo = start, hi = nums.length - 1;
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+
+        while (lo < hi) {
+            int sum = nums[lo] + nums[hi];
+            int left = nums[lo];
+            int right = nums[hi];
+            if (sum == target) {
+                res.add(new ArrayList<>(Arrays.asList(nums[lo], nums[hi])));
+                lo++;
+                hi--;
+                // 因为已经重新排序过，所以如果重复，其实就是看下一个
+                // 所以就直接在下方判断就行了
+                while (lo < hi && nums[lo] == left) lo++;
+                while (lo < hi && nums[hi] == right) hi--;
+
+            } else if (sum < target) lo++;
+            else hi--;
+        }
+        return res;
+    }
+
+    public List<List<Integer>> threeSumVal(int[] nums, int target) {
+        Arrays.sort(nums);
+
+        int n = nums.length;
+
+        List<List<Integer>> res = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            List<List<Integer>> tuples = twoSumVal(nums, i + 1, target-nums[i]);
+            for (List<Integer> tuple : tuples) {
+                tuple.add(nums[i]);
+//                System.out.println(tuple);
+//                System.out.println(nums[i]);
+
+                res.add(tuple);
+            }
+            //关键点在于，不能让第一个数重复，至于后面的两个数，我们复用的 twoSum 函数会保证它们不重复
+            while (i < n - 1 && nums[i] == nums[i + 1]) i++;
+
+        }
+
+        return res;
+    }
+
+    }
