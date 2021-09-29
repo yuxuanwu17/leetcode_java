@@ -12,7 +12,7 @@ public class UF {
         // 一开始互不联通
         this.count = n;
         // 父节点指针最终指向自己
-        parent = new int[n];
+        parent = new int[n];    
         size = new int[n];
 
         for (int i = 0; i < n; i++) {
