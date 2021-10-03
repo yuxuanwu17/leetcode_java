@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 
 public class HeapSort {
-
+//    https://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity/18742428#18742428
     public void sort(int arr[]) {
         int n = arr.length;
 
@@ -24,8 +24,8 @@ public class HeapSort {
     }
 
     // To heapify a subtree rooted with node i which is an index in arr[]. n size of heap
-
     public void heapify(int[] arr, int n, int i) {
+        if (i >= n) return; // recursion stop criterial
         int largest = i; // initialize the largest as the root
         int left = 2 * i + 1; // the left node would be 2*i+1
         int right = 2 * i + 2;
